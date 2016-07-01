@@ -1,23 +1,13 @@
 package de.ksw.kbse.cdi.testprogram.model;
 
 import de.ksw.kbse.cdi.testprogram.interfaces.Person;
-import de.ksw.kbse.cdi.testprogram.interfaces.Auto;
-import de.ksw.kbse.cdi.testprogram.qualifier.Ford;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-@Named("student")
-public class Student implements Person {
+public class Mutter implements Person {
 
     private String vorname;
     private String nachname;
-
-    @Inject
-    @Ford
-    private Auto auto;
-    
-    @Inject
-    private Mutter mutter;
 
     @Override
     public String getVorname() {
@@ -38,13 +28,9 @@ public class Student implements Person {
     public void setNachname(String nachname) {
         this.nachname = nachname;
     }
-    
-    public Mutter getMutter() {
-        return mutter;
-    }
 
     @Override
     public String toString() {
-        return "Student{" + "vorname=" + vorname + ", nachname=" + nachname + ", auto=" + auto + ", mutter=" + mutter + '}';
+        return "Mutter{" + "vorname=" + vorname + ", nachname=" + nachname + '}';
     }
 }

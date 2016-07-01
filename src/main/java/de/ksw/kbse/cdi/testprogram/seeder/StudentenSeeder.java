@@ -3,6 +3,7 @@ package de.ksw.kbse.cdi.testprogram.seeder;
 import de.ksw.kbse.cdi.testprogram.factories.StudentFactory;
 import de.ksw.kbse.cdi.testprogram.interfaces.Seeder;
 import de.ksw.kbse.cdi.testprogram.interfaces.Person;
+import de.ksw.kbse.cdi.testprogram.model.Student;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -27,6 +28,16 @@ public class StudentenSeeder implements Seeder {
         "Lina",
         "Elias"
     };
+    
+    private final String[] mutterNamen = {
+        "Mia",
+        "Emma",
+        "Hannah",
+        "Sofia",
+        "Lea",
+        "Larissa",
+        "Lina"
+    };
 
     private final String[] nachnamen = {
         "Müller",
@@ -49,9 +60,12 @@ public class StudentenSeeder implements Seeder {
     public List<Person> seed() {
         Random random = new Random();
         for (int i = 0; i < COUNT; i++) {
-            Person student = StudentFactory.getStudent();
+            String nachname = nachnamen[random.nextInt(nachnamen.length)];
+            Student student = StudentFactory.getStudent();
             student.setVorname(vornamen[random.nextInt(vornamen.length)]);
-            student.setNachname(nachnamen[random.nextInt(nachnamen.length)]);
+            student.setNachname(nachname);
+            student.getMutter().setVorname(mutterNamen[random.nextInt(mutterNamen.length)]);
+            student.getMutter().setNachname(nachname);
             studentenListe.add(student);
         }
         
