@@ -15,7 +15,7 @@ public class Student implements Person {
     @Inject
     @Ford
     private Auto auto;
-    
+
     @Inject
     private Mutter mutter;
 
@@ -38,9 +38,17 @@ public class Student implements Person {
     public void setNachname(String nachname) {
         this.nachname = nachname;
     }
-    
+
     public Mutter getMutter() {
         return mutter;
+    }
+    
+    public String getMutterStr() {
+        return mutter.toString();
+    }
+
+    public String getAuto() {
+        return auto.getMarke() + " " + auto.getModell();
     }
 
     @Override

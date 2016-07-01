@@ -1,8 +1,6 @@
 package de.ksw.kbse.cdi.testprogram.model;
 
 import de.ksw.kbse.cdi.testprogram.interfaces.Person;
-import javax.inject.Inject;
-import javax.inject.Named;
 
 public class Mutter implements Person {
 
@@ -31,6 +29,7 @@ public class Mutter implements Person {
 
     @Override
     public String toString() {
-        return "Mutter{" + "vorname=" + vorname + ", nachname=" + nachname + '}';
+        return (vorname != null ? vorname : "") + " "
+                + (nachname != null ? nachname : "");
     }
 }

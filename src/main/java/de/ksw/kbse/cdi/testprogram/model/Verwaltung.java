@@ -27,4 +27,12 @@ public class Verwaltung {
             System.out.println(student);
         });
     }
+    
+    public void addStudent(Student student) {
+        studentenListe.add(student);
+    }
+    
+    public List<Person> getStudentenListe() {
+        return studentenListe;
+    }
 }
